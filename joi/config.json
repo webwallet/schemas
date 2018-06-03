@@ -1,0 +1,111 @@
+{
+  "counters": {},
+  "items": {
+    "publicKeys": {
+      "max": 1
+    },
+    "transaction": {
+      "unitsOfAccount": {
+        "min": 1,
+        "max": 1
+      },
+      "inputs": {
+        "min": 1,
+        "max": 1
+      },
+      "outputs": {
+        "min": 2,
+        "max": 2
+      },
+      "pointers": {
+        "min": 0,
+        "max": 10
+      }
+    },
+    "signatures": {
+      "array": {
+        "min": 1,
+        "max": 2
+      }
+    }
+  },
+  "lengths": {
+    "bigNumber": {
+      "all": {
+        "max": 101
+      }
+    },
+    "crypto": {
+      "address": {
+        "min": 26,
+        "max": 35
+      },
+      "hash": {
+        "min": 64,
+        "max": 64
+      },
+      "publicKey": {
+        "min": 66,
+        "max": 130
+      },
+      "signature": {
+        "min": 130,
+        "max": 140
+      },
+      "unitOfAccount": {
+        "min": 26,
+        "max": 35
+      }
+    },
+    "transaction": {
+      "iou": {
+        "issuer": {
+          "max": 100
+        },
+        "nonce": {
+          "max": 100
+        }
+      },
+      "pointer": {
+        "min": 67,
+        "max": 67
+      }
+    }
+  },
+  "values": {
+    "crypto": {
+      "address": {
+        "derivation": [
+          "sha256:ripemd160"
+        ]
+      },
+      "hashes": [
+        "sha256",
+        "sha256:sha256"
+      ],
+      "inputs": [
+        "stringify:data",
+        "merkle:data.inputs.hash.val"
+      ],
+      "signatures": [
+        "ed25519"
+      ]
+    }
+  },
+  "regex": {
+    "base58": "^[1-9A-HJ-NP-Za-km-z]+$",
+    "bigNumber": {
+      "decimal": {
+        "integer": "^[-+]?[0-9]+$",
+        "fractional": {
+          "positive": "^[+]?[0-9]+(.[0-9]+)?$",
+          "negative": "^-[0-9]+(.[0-9]+)?$",
+          "all": "^[-+]?[0-9]+(.[0-9]+)?$"
+        }
+      }
+    },
+    "transaction": {
+      "pointer": "^([0-9a-fA-F]{2})+::[0-9]{1}$"
+    }
+  }
+}

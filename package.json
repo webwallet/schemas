@@ -1,0 +1,28 @@
+{
+  "name": "@webwallet/schemas",
+  "version": "1.0.0",
+  "description": "Object schemas for transaction data validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webwallet/schemas.git"
+  },
+  "keywords": [
+    "webwallet",
+    "schemas",
+    "joi"
+  ],
+  "author": "webwallet.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webwallet/schemas/issues"
+  },
+  "homepage": "https://github.com/webwallet/schemas#readme",
+  "dependencies": {
+    "joi": "13.3.0",
+    "require-directory": "2.1.1"
+  }
+}
