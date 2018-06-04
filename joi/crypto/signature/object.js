@@ -9,7 +9,7 @@ const signatureStringSchema = require('./string')
 const {config} = global
 const {address, signature} = config.crypto
 const addressDerivation = address.derivation
-const maxPublicKeys = address.keys.items.max
+const maxPublicKeys = address.keys.array.max
 const {algorithms} = signature
 
 const schema = joi.object().keys({
