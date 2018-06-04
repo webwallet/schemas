@@ -1,7 +1,8 @@
 'use strict'
 
 const joi = require('joi')
-const config = global.config
+
+const {config} = global
 const base58 = new RegExp(config.regex.base58)
 const {min, max} = config.lengths.crypto.address
 
