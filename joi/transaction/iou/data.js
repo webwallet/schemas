@@ -10,7 +10,7 @@ const iouNonceLength = config.transaction.request.iou.nonce
 const bigNumberStringSchemas = schemas.math.bignumber.decimal.fractional
 
 const schema = joi.object().keys({
-  iss: joi.string().max(issuerDomainLength.max).required()
+  iss: joi.string().trim().max(issuerDomainLength.max).required()
     .description('(issuer) transaction clearing domain'),
   sub: addressStringSchema.required()
     .description('(subject) source of the transaction'),
