@@ -1,5 +1,7 @@
 'use strict'
 
-const directory = './joi'
+const joi = require('./joi')
 
-module.exports = require(directory)
+module.exports = {
+  joi
+}

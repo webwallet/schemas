@@ -11,6 +11,4 @@ global.schemas.crypto = requireDirectory(module, './crypto')
 const schemas = Object.assign(global.schemas,
   requireDirectory(module, {exclude: /crypto|math/}))
 
-module.exports = {
-  schemas
-}
+module.exports = schemas
