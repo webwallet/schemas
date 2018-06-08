@@ -13,6 +13,6 @@ const schema = joi.object().keys({
     .description('set of instructions executed in the transaction'),
   outputs: outputs.required()
     .description('set of results after clearing the transaction')
-})
+}).description('transaction record data object')
 
 module.exports = schema

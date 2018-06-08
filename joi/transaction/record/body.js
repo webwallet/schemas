@@ -9,13 +9,12 @@ const cryptoSignaturesArraySchema = schemas.crypto.signature.array
 
 const transactionRecordMetadata = joi.object().keys({
   signatures: cryptoSignaturesArraySchema.optional()
-})
+}).description('metadata that is neither hashed nor signed')
 
 const schema = joi.object().keys({
   hash: cryptoHashObjectSchema.required(),
-  data: transactionRecordDataSchema.required()
-    .description('transaction record data'),
+  data: transactionRecordDataSchema.required(),
   meta: transactionRecordMetadata.optional()
-})
+}).description('transaction record body')
 
 module.exports = schema
