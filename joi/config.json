@@ -99,7 +99,7 @@
         "domain": {
           "max": 100
         },
-        "nonce": {
+        "random": {
           "max": 100
         }
       },
