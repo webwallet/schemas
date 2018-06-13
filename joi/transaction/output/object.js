@@ -16,14 +16,14 @@ const balanceObjectSchema = joi.object().keys({
 })
 
 const schema = joi.object().keys({
-  adr: schemas.crypto.address.string.required()
-    .description('cryptographic address identifier'),
-  bal: balanceObjectSchema.required()
+  address: schemas.crypto.address.string.required()
+    .description('holder of the units accounted by the output'),
+  balance: balanceObjectSchema.required()
     .description('minimum, maximum and net balance properties'),
-  cru: schemas.crypto.countspace.string.required()
+  counter: schemas.crypto.countspace.string.required()
     .description('unit of account in which the balance is denominated'),
-  pre: previousOutputsArraySchema.required()
-    .description('pointers to previous outputs referenced for spending')
+  sources: previousOutputsArraySchema.required()
+    .description('hash pointers to previous outputs to be used as sources')
 })
 
 module.exports = schemas
