@@ -13,18 +13,18 @@ const maxPublicKeys = address.keys.array.max
 const {algorithms} = signature
 
 const schema = joi.object().keys({
-  alg: joi.string().valid(algorithms).required()
+  scheme: joi.string().valid(algorithms).required()
     .description('digital signature algorithm'),
-  wdf: joi.string().valid(addressDerivation).default(addressDerivation[0])
+  derive: joi.string().valid(addressDerivation).default(addressDerivation[0])
     .description('wallet address derivation function'),
-  wid: addressStringSchema.required()
-    .description('(wallet ID) source wallet address (signer)'),
-  key: publicKeyStringSchema
+  wallet: addressStringSchema.required()
+    .description('wallet address providing the signature'),
+  public: publicKeyStringSchema
     .description('public key for signature verification'),
-  kid: joi.number().integer().min(0).max(maxPublicKeys - 1)
-    .description('(key index) position in an array of public keys'),
-  sig: signatureStringSchema.required()
-}).or('key', 'kid')
+  keypos: joi.number().integer().min(0).max(maxPublicKeys - 1)
+    .description('position in an array of public keys'),
+  string: signatureStringSchema.required()
+}).or('public', 'keypos')
 .description('properties for describing a digital signature')
 
 module.exports = schema
