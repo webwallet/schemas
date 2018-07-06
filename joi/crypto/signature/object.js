@@ -15,15 +15,17 @@ const {algorithms} = signature
 const schema = joi.object().keys({
   scheme: joi.string().valid(algorithms).required()
     .description('digital signature algorithm'),
-  derive: joi.string().valid(addressDerivation).default(addressDerivation[0])
-    .description('wallet address derivation function'),
-  wallet: addressStringSchema.required()
+  signer: addressStringSchema.required()
     .description('wallet address providing the signature'),
+  string: signatureStringSchema.required()
+    .description('digital signature string value in hex format'),
+
   public: publicKeyStringSchema
     .description('public key for signature verification'),
   keypos: joi.number().integer().min(0).max(maxPublicKeys - 1)
     .description('position in an array of public keys'),
-  string: signatureStringSchema.required()
+  linker: joi.string().valid(addressDerivation).default(addressDerivation[0])
+    .description('address derivation function for linking to the public key')
 }).or('public', 'keypos')
 .description('properties for describing a digital signature')
 

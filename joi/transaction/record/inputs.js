@@ -7,7 +7,7 @@ const hashStringSchema = schemas.crypto.hash.string
 const inputsArrayItems = config.transaction.record.inputs.array
 
 const recordInputSchema = joi.object().keys({
-  iou: hashStringSchema.required()
+  hash: hashStringSchema.required()
     .description('IOU identifier (cryptographic hash)')
 })
 
