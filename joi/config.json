@@ -69,20 +69,21 @@
     },
     "publicKey": {
       "length": {
-        "min": 66,
+        "min": 64,
         "max": 130
       }
     },
     "signature": {
-      "algorithms": [
-        "ed25519"
+      "schemes": [
+        "ecdsa-ed25519",
+        "eddsa-ed25519"
       ],
       "array": {
         "min": 0,
         "max": 2
       },
       "length": {
-        "min": 130,
+        "min": 128,
         "max": 140
       }
     }
@@ -121,6 +122,18 @@
         "array": {
           "min": 2,
           "max": 2
+        },
+        "filters": {
+          "array": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        "scripts": {
+          "array": {
+            "min": 0,
+            "max": 0
+          }
         }
       },
       "pointer": {
