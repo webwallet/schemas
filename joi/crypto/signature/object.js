@@ -10,11 +10,11 @@ const {config} = global
 const {address, signature} = config.crypto
 const addressDerivation = address.derivation
 const maxPublicKeys = address.keys.array.max
-const {algorithms} = signature
+const {schemes} = signature
 
 const schema = joi.object().keys({
-  scheme: joi.string().valid(algorithms).required()
-    .description('digital signature algorithm'),
+  scheme: joi.string().valid(schemes).required()
+    .description('digital signature scheme (algorithm-curve)'),
   signer: addressStringSchema.required()
     .description('wallet address providing the signature'),
   string: signatureStringSchema.required()
