@@ -3,7 +3,9 @@
 const joi = require('joi')
 
 const {config, schemas} = global
-const previousOutputsArraySchema = require('./previous')
+const outputFiltersArraySchema = require('./filters')
+const outputScriptsArraySchema = require('./scripts')
+const outputSourcesArraySchema = require('./sources')
 const bigNumberStringSchemas = schemas.math.bignumber.decimal.fractional
 
 const balanceObjectSchema = joi.object().keys({
@@ -22,7 +24,11 @@ const schema = joi.object().keys({
     .description('minimum, maximum and net balance properties'),
   counter: schemas.crypto.countspace.string.required()
     .description('unit of account in which the balance is denominated'),
-  sources: previousOutputsArraySchema.required()
+  filters: outputFiltersArraySchema.optional()
+    .description('conditional filters to pass before clearing a transaction'),
+  scripts: outputScriptsArraySchema.optional()
+    .description('redeem scripts to evaluate before clearing a transaction'),
+  sources: outputSourcesArraySchema.required()
     .description('hash pointers to previous outputs to be used as sources')
 })
 
