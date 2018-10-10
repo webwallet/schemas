@@ -3,7 +3,7 @@
 const joi = require('joi')
 
 const addressStringSchema = require('../address/string')
-const publicKeyStringSchema = require('../public-key/string')
+const publicKeyStringSchema = require('../keys/public/string')
 const signatureStringSchema = require('./string')
 
 const {config} = global
