@@ -2,7 +2,7 @@
 
 const joi = require('joi')
 
-const {schemas} = global
+const { schemas } = global
 const iouDataObjectSchema = require('./data')
 const cryptoHashObjectSchema = schemas.crypto.hash.object
 const cryptoSignaturesArraySchema = schemas.crypto.signature.array

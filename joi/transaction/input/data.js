@@ -2,7 +2,10 @@
 
 const joi = require('joi')
 
-const {config, schemas} = global
+const inputOutputLockerSchema = require('../locking')
+const lockerSolverObjectSchema = require('../locking/solver')
+
+const { config, schemas } = global
 const addressStringSchema = schemas.crypto.address.string
 const countspaceStringSchema = schemas.crypto.countspace.string
 const clearingDomainLength = config.transaction.request.iou.domain
@@ -30,6 +33,11 @@ const schema = joi.object().keys({
     .description('date when the IOU becomes active for clearing'),
   expiry: joi.date().iso().required().options({convert: true})
     .description('latest valid date for clearing the IOU'),
+
+  locker: inputOutputLockerSchema.optional()
+    .description('locking properties to restrict output clearing'),
+  solver: lockerSolverObjectSchema.optional()
+    .description('input properties for solving output lockings')
 })
 
 module.exports = schema
