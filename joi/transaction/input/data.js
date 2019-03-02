@@ -2,8 +2,8 @@
 
 const joi = require('joi')
 
-const inputOutputLockerSchema = require('../locking')
-const lockerSolverObjectSchema = require('../locking/solver')
+const inputOutputLockerSchema = require('../locker')
+const lockerSolverObjectSchema = require('../locker/solver')
 
 const { config, schemas } = global
 const addressStringSchema = schemas.crypto.address.string

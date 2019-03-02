@@ -3,7 +3,7 @@
 const joi = require('joi')
 
 const outputBalanceObjectSchema = require('./balance')
-const outputLockingObjectSchema = require('../locking')
+const outputLockingObjectSchema = require('../locker')
 const outputSourcesArraySchema = require('./sources')
 
 const schema = joi.object().keys({
