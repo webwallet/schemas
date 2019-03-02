@@ -2,7 +2,7 @@
 
 const joi = require('joi')
 
-const {config, schemas} = global
+const { config, schemas } = global
 const transactionPointerSchema = config.transaction.record.pointer
 const outputPointersArrayItems = transactionPointerSchema.array
 const regex = new RegExp(transactionPointerSchema.regex)
