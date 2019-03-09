@@ -2,7 +2,7 @@
 
 const joi = require('joi')
 
-const {config, schemas} = global
+const { config, schemas } = global
 const eventSchema = schemas.crypto.hash.string
 const eventsArrayItems = config.transaction.events.array
 

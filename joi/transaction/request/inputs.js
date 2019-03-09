@@ -2,8 +2,8 @@
 
 const joi = require('joi')
 
-const {config, schemas} = global
-const transactionRequestInputObjectSchema = require('../iou/object')
+const { config, schemas } = global
+const transactionRequestInputObjectSchema = require('../input/object')
 const inputsArrayItems = config.transaction.record.inputs.array
 
 const schema = joi.array().items(transactionRequestInputObjectSchema).unique()
