@@ -89,6 +89,21 @@
     }
   },
   "transaction": {
+    "address": {
+      "lockers": {
+        "array": {
+          "min": 1
+        },
+        "types": [
+          "threshold"
+        ]
+      },
+      "signers": {
+        "array": {
+          "min": 1
+        }
+      }
+    },
     "events": {
       "array": {
         "min": 0,
