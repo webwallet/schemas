@@ -4,10 +4,10 @@ const joi = require('joi')
 
 const inputOutputLockerSchema = require('../locker')
 const lockerSolverObjectSchema = require('../locker/solver')
+const addressStringSchema = require('../address/string')
 
 const { config, schemas } = global
-const addressStringSchema = schemas.crypto.address.string
-const countspaceStringSchema = schemas.crypto.countspace.string
+const countspaceStringSchema = addressStringSchema
 const clearingDomainLength = config.transaction.request.iou.domain
 const iouRandomStringLength = config.transaction.request.iou.random
 const bigNumberStringSchemas = schemas.math.bignumber.decimal.fractional

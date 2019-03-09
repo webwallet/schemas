@@ -6,7 +6,7 @@ const {schemas} = global
 const inputsArraySchema = require('../request/inputs')
 const transactionRecordDataSchema = require('./data')
 const cryptoHashObjectSchema = schemas.crypto.hash.object
-const cryptoSignaturesArraySchema = schemas.crypto.signature.array
+const cryptoSignaturesArraySchema = require('../signature/array')
 
 const transactionRecordMetadata = joi.object().keys({
   inputs: inputsArraySchema.required(),
