@@ -2,10 +2,10 @@
 
 const joi = require('joi')
 
-const { config, schemas } = global
+const multisigConditionsObjectSchema = require('./multisig/object')
 
 const schema = joi.object().keys({
-  
-}).description('locking condition for authorizing a multisig transaction')
+  multisig: multisigConditionsObjectSchema.optional()
+}).description('spending conditions to satisfy on transaction clearing')
 
 module.exports = schema
