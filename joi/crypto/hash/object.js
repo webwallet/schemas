@@ -3,8 +3,8 @@
 const joi = require('joi')
 const hashStringSchema = require('./string')
 
-const {config} = global
-const {algorithms, generation} = config.crypto.hash
+const { config } = global
+const { algorithms, generation } = config.crypto.hash
 
 const schema = joi.object().keys({
   types: joi.string().valid(algorithms).default(algorithms[0]).required()
