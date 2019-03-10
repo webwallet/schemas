@@ -90,15 +90,7 @@
   },
   "transaction": {
     "address": {
-      "lockers": {
-        "array": {
-          "min": 1
-        },
-        "types": [
-          "threshold"
-        ]
-      },
-      "signers": {
+      "identities": {
         "array": {
           "min": 1
         }

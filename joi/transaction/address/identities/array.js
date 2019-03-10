@@ -4,7 +4,7 @@ const joi = require('joi')
 const addressSignerObjectSchema = require('./object')
 
 const { config } = global
-const { array: addressSignersArrayItems } = config.transaction.address.signers
+const { array: addressSignersArrayItems } = config.transaction.address.identities
 
 const schema = joi.array().items(addressSignerObjectSchema).unique()
   .min(addressSignersArrayItems.min).options({stripUnknown: false})
