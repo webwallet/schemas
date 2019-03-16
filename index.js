@@ -1,10 +1,11 @@
 'use strict'
 
 require('module-alias/register') // custom local paths
-const requireDirectory = require('require-directory')
 
-const formats = requireDirectory(module, './formats')
+const samples = require('./samples')
+const formats = require('./formats')
 
 module.exports = {
+  samples,
   formats
 }
