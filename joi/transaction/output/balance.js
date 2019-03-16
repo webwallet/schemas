@@ -2,15 +2,14 @@
 
 const joi = require('joi')
 
-const { schemas } = global
-const bigNumberStringSchemas = schemas.math.bignumber.decimal.fractional
+const bigNumberSigned = require('*joi/math/bignumber/decimal/fractional/signed')
 
 const schema = joi.object().keys({
-  net: bigNumberStringSchemas.signed.required()
+  net: bigNumberSigned.required()
     .description('number of units accounted by the output'),
-  min: bigNumberStringSchemas.signed.required()
+  min: bigNumberSigned.required()
     .description('lower limit constraint for the net balance property'),
-  max: bigNumberStringSchemas.signed.required()
+  max: bigNumberSigned.required()
     .description('upper limit constraint for the net balance property')
 })
 

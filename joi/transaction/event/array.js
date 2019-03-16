@@ -2,8 +2,9 @@
 
 const joi = require('joi')
 
-const { config, schemas } = global
-const eventSchema = schemas.crypto.hash.string
+const config = require('*joi/config')
+const eventSchema = require('*joi/crypto/hash/string')
+
 const eventsArrayItems = config.transaction.events.array
 
 const schema = joi.array().items(eventSchema).unique()

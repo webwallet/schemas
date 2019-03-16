@@ -3,7 +3,7 @@
 const joi = require('joi')
 
 const outputAddressStringSchema = require('../address/string')
-const outputCounterStringSchema = outputAddressStringSchema
+const outputCounterStringSchema = require('../address/string')
 const outputBalanceObjectSchema = require('./balance')
 const outputLockingObjectSchema = require('../locker')
 const outputSourcesArraySchema = require('./sources')

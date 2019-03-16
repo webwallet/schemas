@@ -2,10 +2,12 @@
 
 const joi = require('joi')
 
-const { config } = global
-const { length } = config.crypto.publicKey
+const config = require('*joi/config')
 
-const schema = joi.string().hex().trim().min(length.min).max(length.max)
+const publicKeyLength = config.crypto.publicKey.length
+
+const schema = joi.string().hex().trim()
+  .min(publicKeyLength.min).max(publicKeyLength.max)
   .description('cryptographic public key in hexadecimal format')
 
 module.exports = schema

@@ -2,7 +2,8 @@
 
 const joi = require('joi')
 
-const {config} = global
+const config = require('*joi/config')
+
 const bigNumber = config.math.bignumber
 const regex = new RegExp(bigNumber.regex.decimal.integer.positive)
 

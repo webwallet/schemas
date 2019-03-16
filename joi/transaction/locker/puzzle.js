@@ -1,7 +1,5 @@
 'use strict'
 
-const { schemas } = global
-
-const schema = schemas.crypto.hash.string
+const schema = require('*joi/crypto/hash/string')
 
 module.exports = schema

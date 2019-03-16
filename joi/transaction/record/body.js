@@ -2,21 +2,20 @@
 
 const joi = require('joi')
 
-const {schemas} = global
-const inputsArraySchema = require('../request/inputs')
-const transactionRecordDataSchema = require('./data')
-const cryptoHashObjectSchema = schemas.crypto.hash.object
+const cryptoHashObjectSchema = require('*joi/crypto/hash/object')
 const cryptoSignaturesArraySchema = require('../signature/array')
+const transactionRecordDataObjectSchema = require('./data')
+const inputsArraySchema = require('../request/inputs')
 
-const transactionRecordMetadata = joi.object().keys({
+const transactionRecordMetaObjectSchema = joi.object().keys({
   inputs: inputsArraySchema.required(),
   signatures: cryptoSignaturesArraySchema.optional()
 }).description('metadata that is neither hashed nor signed')
 
 const schema = joi.object().keys({
   hash: cryptoHashObjectSchema.required(),
-  data: transactionRecordDataSchema.required(),
-  meta: transactionRecordMetadata.optional()
+  data: transactionRecordDataObjectSchema.required(),
+  meta: transactionRecordMetaObjectSchema.optional()
 }).description('transaction record body')
 
 module.exports = schema

@@ -2,8 +2,9 @@
 
 const joi = require('joi')
 
-const {config} = global
+const config = require('*joi/config')
 const outputObjectSchema = require('../output/object')
+
 const outputsArrayItems = config.transaction.record.outputs.array
 
 const schema = joi.array().items(outputObjectSchema).unique()

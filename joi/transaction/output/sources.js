@@ -2,13 +2,15 @@
 
 const joi = require('joi')
 
-const { config, schemas } = global
+const config = require('*joi/config')
+
 const transactionPointerSchema = config.transaction.record.pointer
 const outputPointersArrayItems = transactionPointerSchema.array
 const regex = new RegExp(transactionPointerSchema.regex)
-const {min, max} = transactionPointerSchema.length
+const pointerLength = transactionPointerSchema.length
 
-const outputPointerSchema = joi.string().regex(regex).min(min).max(max)
+const outputPointerSchema = joi.string().regex(regex)
+  .min(pointerLength.min).max(pointerLength.max)
   .description('transaction pointer in hash::index format')
 
 const schema = joi.array().items(outputPointerSchema).unique()

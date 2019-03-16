@@ -2,7 +2,7 @@
 
 const joi = require('joi')
 
-const { config } = global
+const config = require('*joi/config')
 
 const schema = joi.object().keys({
   // active

@@ -1,10 +1,11 @@
 'use strict'
 
 const joi = require('joi')
+
+const config = require('*joi/config')
 const addressSignerObjectSchema = require('./object')
 
-const { config } = global
-const { array: addressSignersArrayItems } = config.transaction.address.identities
+const addressSignersArrayItems = config.transaction.address.identities.array
 
 const schema = joi.array().items(addressSignerObjectSchema).unique()
   .min(addressSignersArrayItems.min).options({stripUnknown: false})

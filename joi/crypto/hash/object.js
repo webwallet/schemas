@@ -1,9 +1,10 @@
 'use strict'
 
 const joi = require('joi')
+
+const config = require('*joi/config')
 const hashStringSchema = require('./string')
 
-const { config } = global
 const { algorithms, generation } = config.crypto.hash
 
 const schema = joi.object().keys({

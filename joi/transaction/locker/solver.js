@@ -2,7 +2,8 @@
 
 const joi = require('joi')
 
-const { config } = global
+const config = require('*joi/config')
+
 const hashee = config.transaction.request.iou.solver.hashee
 
 const schema = joi.object().keys({

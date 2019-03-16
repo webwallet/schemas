@@ -2,8 +2,9 @@
 
 const joi = require('joi')
 
-const {config, schemas} = global
-const hashStringSchema = schemas.crypto.hash.string
+const config = require('*joi/config')
+const hashStringSchema = require('*joi/crypto/hash/object')
+
 const inputsArrayItems = config.transaction.record.inputs.array
 
 const recordInputSchema = joi.object().keys({

@@ -2,10 +2,12 @@
 
 const joi = require('joi')
 
-const {config} = global
-const {length} = config.crypto.signature
+const config = require('*joi/config')
 
-const schema = joi.string().hex().trim().min(length.min).max(length.max)
+const signatureLength = config.crypto.signature.length
+
+const schema = joi.string().hex().trim()
+  .min(signatureLength.min).max(signatureLength.max)
   .description('DER encoded digital signature')
 
 module.exports = schema

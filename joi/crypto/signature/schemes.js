@@ -2,7 +2,8 @@
 
 const joi = require('joi')
 
-const { config } = global
+const config = require('*joi/config')
+
 const digitalSignatureSchemes = config.crypto.signature.schemes
 
 const scheme = joi.string().valid(digitalSignatureSchemes)

@@ -2,15 +2,17 @@
 
 const joi = require('joi')
 
+const config = require('*joi/config')
+const bigNumberPositive = require('*joi/math/bignumber/decimal/fractional/positive')
+const bigNumberNegative = require('*joi/math/bignumber/decimal/fractional/negative')
+
 const inputOutputLockerSchema = require('../locker')
 const lockerSolverObjectSchema = require('../locker/solver')
 const addressStringSchema = require('../address/string')
 
-const { config, schemas } = global
 const countspaceStringSchema = addressStringSchema
 const clearingDomainLength = config.transaction.request.iou.domain
 const iouRandomStringLength = config.transaction.request.iou.random
-const bigNumberStringSchemas = schemas.math.bignumber.decimal.fractional
 
 const schema = joi.object().keys({
   domain: joi.string().trim().max(clearingDomainLength.max).required()
@@ -20,9 +22,9 @@ const schema = joi.object().keys({
   target: addressStringSchema.required()
     .description('target address to receive the units'),
 
-  amount: bigNumberStringSchemas.positive.required()
+  amount: bigNumberPositive.required()
     .description('number of units to offset/transfer on transaction clearing'),
-  credit: bigNumberStringSchemas.negative.optional()
+  credit: bigNumberNegative.optional()
     .description('number of units to grant as credit in the balance.min property'),
   symbol: countspaceStringSchema.required()
     .description('symbol of a unit of account (countspace identifier)'),

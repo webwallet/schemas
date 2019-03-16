@@ -2,10 +2,12 @@
 
 const joi = require('joi')
 
-const { config } = global
-const { length } = config.crypto.hash
+const config = require('*joi/config')
 
-const schema = joi.string().hex().trim().min(length.min).max(length.max)
+const hashLength = config.crypto.hash.length
+
+const schema = joi.string().hex().trim()
+  .min(hashLength.min).max(hashLength.max)
   .description('cryptographic hash value in hexadecimal format')
 
 module.exports = schema

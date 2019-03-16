@@ -2,10 +2,9 @@
 
 const joi = require('joi')
 
-const { schemas } = global
-const cryptoHashObjectSchema = schemas.crypto.hash.object
-const transactionDataObjectSchema = require('./data')
+const cryptoHashObjectSchema = require('*joi/crypto/hash/object')
 const cryptoSignaturesArraySchema = require('../signature/array')
+const transactionDataObjectSchema = require('./data')
 
 const transactionMetaObjectSchema = joi.object().keys({
   signatures: cryptoSignaturesArraySchema.optional()

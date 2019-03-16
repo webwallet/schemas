@@ -2,12 +2,11 @@
 
 const joi = require('joi')
 
-const { schemas } = global
-const iouDataObjectSchema = require('./data')
-const cryptoHashObjectSchema = schemas.crypto.hash.object
+const cryptoHashObjectSchema = require('*joi/crypto/hash/object')
 const cryptoSignaturesArraySchema = require('../signature/array')
+const iouDataObjectSchema = require('./data')
 
-const iouObjectMetadataSchema = joi.object().keys({
+const iouMetaObjectSchema = joi.object().keys({
   signatures: cryptoSignaturesArraySchema.required()
 }).description('metadata that is neither hashed nor signed')
 
@@ -15,7 +14,7 @@ const iouObjectMetadataSchema = joi.object().keys({
 const schema = joi.object().keys({
   hash: cryptoHashObjectSchema.required(),
   data: iouDataObjectSchema.required(),
-  meta: iouObjectMetadataSchema.required()
+  meta: iouMetaObjectSchema.required()
 })
 
 module.exports = schema

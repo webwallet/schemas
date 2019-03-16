@@ -2,9 +2,8 @@
 
 const joi = require('joi')
 
-const { schemas } = global
-const publicKeyStringSchema = schemas.crypto.keys.public.string
-const validDigitalSignatureSchemes = schemas.crypto.signature.schemes
+const publicKeyStringSchema = require('*joi/crypto/keys/public/string')
+const validDigitalSignatureSchemes = require('*joi/crypto/signature/schemes')
 
 const schema = joi.object().keys({
   scheme: validDigitalSignatureSchemes.required(),
