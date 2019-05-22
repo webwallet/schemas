@@ -1,6 +1,8 @@
 'use strict'
 
-require('module-alias/register') // custom local paths
+const moduleAlias = require('module-alias') // custom local paths
+moduleAlias.addAlias('*joi', __dirname + '/formats/joi')
+moduleAlias()
 
 const samples = require('./samples')
 const formats = require('./formats')
