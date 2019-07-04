@@ -5,6 +5,7 @@ const joi = require('joi')
 const config = require('*joi/config')
 const bigNumberPositive = require('*joi/math/bignumber/decimal/fractional/positive')
 const bigNumberNegative = require('*joi/math/bignumber/decimal/fractional/negative')
+const cryptoHashString = require('*joi/crypto/hash/string')
 
 const inputOutputLockerSchema = require('../locker')
 const lockerSolverObjectSchema = require('../locker/solver')
@@ -31,6 +32,9 @@ const schema = joi.object().keys({
 
   random: joi.string().max(iouRandomStringLength.max).required()
     .description('random value for preventing replay attacks'),
+  custom: cryptoHashString.optional()
+    .description('cryptographic hash of meta.custom.data object'),
+
   active: joi.date().iso().optional().options({convert: true})
     .description('date when the IOU becomes active for clearing'),
   expiry: joi.date().iso().required().options({convert: true})
