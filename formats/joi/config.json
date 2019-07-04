@@ -110,6 +110,11 @@
         "random": {
           "max": 100
         },
+        "custom": {
+          "keys": {
+            "max": 10
+          }
+        },
         "solver": {
           "hashee": {
             "min": 1,
