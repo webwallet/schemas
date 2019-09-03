@@ -21,6 +21,7 @@ const schema = joi.object().keys({
   source: addressStringSchema.required()
     .description('source address sending the units'),
   target: addressStringSchema.required()
+    .invalid(joi.ref('source'))
     .description('target address to receive the units'),
 
   amount: bigNumberPositive.required()
