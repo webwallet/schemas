@@ -1,6 +1,6 @@
 {
   "name": "@webwallet/schemas",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Object schemas for transaction data validation.",
   "main": "index.js",
   "scripts": {
