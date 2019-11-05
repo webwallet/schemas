@@ -22,7 +22,7 @@ const schema = joi.object().keys({
     .description('public key for signature verification'),
   script: signatureScriptIdentifierSchema.optional()
     .description('script containing rules for transaction clearing'),
-  linker: joi.string().valid(addressDerivation).default('?')
+  linker: joi.string().valid(addressDerivation).default(addressDerivation[0])
     .description('derivation function that relates public/script to signer')
 }).description('properties for describing a digital signature')
 
