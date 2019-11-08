@@ -125,7 +125,7 @@
       "inputs": {
         "array": {
           "min": 1,
-          "max": 1
+          "max": 100
         }
       }
     },
@@ -133,13 +133,13 @@
       "inputs": {
         "array": {
           "min": 1,
-          "max": 1
+          "max": 100
         }
       },
       "outputs": {
         "array": {
           "min": 2,
-          "max": 2
+          "max": 101
         }
       },
       "pointer": {
